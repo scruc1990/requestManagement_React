@@ -21,7 +21,7 @@ const NavComponent = () => {
                     <Link to="/request" className="no-underline text-blue-500">Solicitudes</Link>
                 </li>
             </ul>
-            <button onClick={logout} className="bg-red-600 text-white border-none py-2 px-4 cursor-pointer">Cerrar sesión</button>
+            <button onClick={logout} className="rounded bg-red-600 text-white border-none py-2 px-4 cursor-pointer">Cerrar sesión</button>
         </nav>
     );
 }

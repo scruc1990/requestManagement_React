@@ -1,87 +1,52 @@
-import requestColumns from "@utils/columns/requestColumns";
-import employeeColumns from "@utils/columns/employeeColumns";
-const TableComponent = ({ children }) => {
-    const columnNames = employeeColumns;
-    const grid = [
-        {
-            "id": 1000635463,
-            "fecha_ingreso": "2023-01-01T00:00:00.000Z",
-            "nombre": "Juan Pérez",
-            "salario": "3000.00"
-        },
-        {
-            "id": 1037625785,
-            "fecha_ingreso": "2023-02-15T00:00:00.000Z",
-            "nombre": "Ana Gómez",
-            "salario": "3500.00"
-        },
-        {
-            "id": 5094531,
-            "fecha_ingreso": "2023-03-20T00:00:00.000Z",
-            "nombre": "Carlos Díaz",
-            "salario": "4000.00"
-        },
-        {
-            "id": 11111,
-            "fecha_ingreso": "2024-12-16T00:00:00.000Z",
-            "nombre": "Pepito",
-            "salario": "3000.00"
-        },
-        {
-            "id": 11112,
-            "fecha_ingreso": "2024-12-16T00:00:00.000Z",
-            "nombre": "Pepito",
-            "salario": "3000.00"
-        },
-        {
-            "id": 11114,
-            "fecha_ingreso": "2024-12-16T00:00:00.000Z",
-            "nombre": "prueba",
-            "salario": "3000.00"
-        },
-        {
-            "id": 11164,
-            "fecha_ingreso": "2024-12-16T00:00:00.000Z",
-            "nombre": "prueba",
-            "salario": "3000.00"
-        },
-        {
-            "id": 11864,
-            "fecha_ingreso": "2024-12-16T00:00:00.000Z",
-            "nombre": "prueba",
-            "salario": "3000.00"
-        },
-        {
-            "id": 118664,
-            "fecha_ingreso": "2024-12-16T00:00:00.000Z",
-            "nombre": "prueba",
-            "salario": "3000.00"
-        }
-    ];
+import { useEffect,useState } from "react";
+import PropTypes from "prop-types";
 
-    
+const TableComponent = ({ columns, data, error, loading, children, toolbar }) => {
+    const [message, setMessage] = useState('');
+
+    useEffect(() => {
+        if (loading) {
+            setMessage('Cargando datos...');
+        } else if (error) {
+            setMessage('Error al cargar los datos');
+        } else {
+            setMessage('No hay datos');
+        }
+    }, [data, error, loading]);
+
     return (
-        <table className="divide-y divide-gray-200 border border-gray-200">
-            <thead className="bg-gray-50">
-                <tr>
-                    {columnNames.map((column, index) => (
-                    <th key={index} className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{column.name}</th>
-                    ))}
-                    { children && <th key={'action'} className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acción</th>}
-                </tr>
-            </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-                {grid.map((row, rowIndex) => (
-                    <tr key={rowIndex}>
-                    {columnNames.map((column) => (
-                        <td key={column.key} className="px-6 py-4 whitespace-nowrap">{row[column.key]}</td>
-                    ))}
-                    { children && <td key={'action'} className="px-6 py-4 whitespace-nowrap">{children}</td>}
+        <div className="flex flex-col justify-items-start">
+            {toolbar && <>{toolbar}</>}
+            <table className="divide-y divide-gray-200 border border-gray-200">
+                <thead className="bg-gray-50">   
+                    <tr>
+                        {columns.map((column, index) => (
+                        <th key={index} className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{column.name}</th>
+                        ))}
+                        { children && <th key={'action'} className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acción</th>}
                     </tr>
-                ))}
-            </tbody>
-        </table>
+                </thead>
+                <tbody className="bg-white divide-y divide-gray-200">
+                    {data ? data?.map((row, rowIndex) => (
+                        <tr key={rowIndex}>
+                        {columns?.map((column) => (
+                            <td key={column.key} className="px-6 py-4 whitespace-nowrap">{row[column.key]}</td>
+                        ))}
+                        { children && <td key={'action'} className="px-6 py-4 whitespace-nowrap">{children}</td>}
+                        </tr>
+                    )) : <tr><td colSpan={columns.length + 1} className="px-6 py-4 whitespace-nowrap">{message}</td></tr>}
+                </tbody>
+            </table>
+        </div>
     )
 };
 
+TableComponent.propTypes = {
+    columns: PropTypes.array.isRequired,
+    data: PropTypes.array,
+    error: PropTypes.bool.isRequired,
+    children: PropTypes.node,
+    loading: PropTypes.bool.isRequired,
+    toolbar: PropTypes.node
+};
 export default TableComponent;
