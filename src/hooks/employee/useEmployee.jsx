@@ -3,6 +3,7 @@ import { getAllEmployees, createEmployee } from '@services/employeeServices.js';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import employeeColumns from '@utils/columns/employeeColumns.js';
 import ToolBarComponent from '@components/generic/ToolBarComponent';
+import EmployeeForm from '@components/employee/employee-form/EmployeeForm';
 import { useRef } from 'react';
 
 export const useEmployee = () => {
@@ -17,14 +18,25 @@ export const useEmployee = () => {
 
     const createEmployees = useMutation({
         mutationFn: (values) => createEmployee(values, token),
-        onSuccess: () => queryClient.invalidateQueries({ queryKey: ['employee'] })
+        onSuccess: (response) => {
+
+            if (!response.success) {
+                alert(response.message);
+            } else {
+                alert('Empleado creado correctamente');
+            }
+
+            queryClient.invalidateQueries({ queryKey: ['employee'] });
+        }
     })
 
+    const employeeCreate = EmployeeForm(bottonRef, createEmployees.mutate);
     const employeeToolBar = ToolBarComponent(
         'Empleado',
         'Crear Empleado',
         'Ingrese los datos del empleado a crear:',
-        bottonRef);
+        bottonRef,
+        employeeCreate);
 
     return {
         data,

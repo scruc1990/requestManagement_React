@@ -15,7 +15,7 @@ const TableComponent = ({ columns, data, error, loading, children, toolbar }) =>
     }, [data, error, loading]);
 
     return (
-        <div className="flex flex-col justify-items-start">
+        <div className="flex flex-col justify-items-start pb-8">
             {toolbar && <>{toolbar}</>}
             <table className="divide-y divide-gray-200 border border-gray-200">
                 <thead className="bg-gray-50">   

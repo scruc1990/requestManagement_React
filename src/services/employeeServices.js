@@ -11,7 +11,7 @@ export const getEmployeeById = async (id) => {
     return data;
 }
 
-export const createEmployee = async (employee) => {
+export const createEmployee = async (employee, token) => {
     const { data } = await tokenAxios.post('/employee', employee, makeBearerToken(token));
     return data;
 }

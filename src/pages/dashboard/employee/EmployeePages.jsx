@@ -6,7 +6,6 @@ const EmployeePages = () => {
         data,
         isLoading,
         isError,
-        createEmployees,
         employeeColumns,
         employeeToolBar
     } =  useEmployee();
