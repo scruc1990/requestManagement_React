@@ -2,11 +2,16 @@ import { createHashRouter } from "react-router-dom";
 import { AuthPages, EmployeePages, RequestPages } from "./lazyRoutes";
 import AuthContainer from "@containers/auth/AuthContainer";
 import DashBoardContainer from "@containers/dashboard/DashBoardContainer";
+import AuthWrapper from "@wrappers/authWrapper";
 
 export const router = createHashRouter([
     {
         path: "/",
-        element: <DashBoardContainer />,
+        element: (
+            <AuthWrapper>
+                <DashBoardContainer />
+            </AuthWrapper>
+            ),
         children: [
             {
                 path: "/employee",
