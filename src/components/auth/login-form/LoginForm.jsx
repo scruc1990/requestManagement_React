@@ -4,9 +4,11 @@ import { validates } from "@utils/functions/validates";
 import { login } from '@services/authServices.js';
 import { useFormik } from "formik";
 import Joi from "joi";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
     const { setToken } = useTokenContext();
+    const navigate = useNavigate();
 
     const validationSchema = Joi.object({
         usuario: Joi.string().max(100).required().messages({
@@ -36,8 +38,10 @@ const LoginForm = () => {
             const result = await login(values);
             if (!result?.success){
                 return alert(result?.message);
+            } else {
+                setToken(result?.token);
+                navigate("/");
             }
-            setToken(result?.token);
         }
     });
 
