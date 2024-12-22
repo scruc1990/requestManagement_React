@@ -19,4 +19,5 @@ const onRequestError = (error) => {
 
 export function addRequestInterceptor(axiosInstance) {
     axiosInstance.interceptors.request.use(onRequest, onRequestError);
+    return axiosInstance;
 }
