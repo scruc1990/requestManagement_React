@@ -61,22 +61,22 @@ const TableComponent = ({ children }) => {
 
     
     return (
-        <table className="grid-table">
-            <thead>
+        <table className="divide-y divide-gray-200 border border-gray-200">
+            <thead className="bg-gray-50">
                 <tr>
                     {columnNames.map((column, index) => (
-                    <th key={index}>{column.name}</th>
+                    <th key={index} className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{column.name}</th>
                     ))}
-                    { children && <th key={'action'}>Acción</th>}
+                    { children && <th key={'action'} className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acción</th>}
                 </tr>
             </thead>
-            <tbody>
+            <tbody className="bg-white divide-y divide-gray-200">
                 {grid.map((row, rowIndex) => (
                     <tr key={rowIndex}>
                     {columnNames.map((column) => (
-                        <td key={column.key}>{row[column.key]}</td>
+                        <td key={column.key} className="px-6 py-4 whitespace-nowrap">{row[column.key]}</td>
                     ))}
-                    { children && <td key={'action'}>{children}</td>}
+                    { children && <td key={'action'} className="px-6 py-4 whitespace-nowrap">{children}</td>}
                     </tr>
                 ))}
             </tbody>

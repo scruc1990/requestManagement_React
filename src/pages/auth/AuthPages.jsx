@@ -1,4 +1,4 @@
-import TableComponent from "@components/TableComponent";
+import TableComponent from "@components/generic/TableComponent";
 
 const AuthPages = () => {
 
