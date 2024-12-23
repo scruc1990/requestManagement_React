@@ -1,18 +1,17 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from 'react-router-dom';
 
 /**
  * Contenedor para la autenticación
- * 
+ *
  * @returns {JSX.Element}
- * 
+ *
  * @author Cristian David Herrera
- * @date 2024-12-22 
+ * @date 2024-12-22
  */
 export default function AuthContainer() {
-
-    return (
-        <div className="flex items-center justify-center">
-            <Outlet />
-        </div>
-    )
+  return (
+    <div className="flex items-center justify-center">
+      <Outlet />
+    </div>
+  );
 }

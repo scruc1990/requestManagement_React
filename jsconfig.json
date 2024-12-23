@@ -1,22 +1,22 @@
 /**
-* Este archivo es para configurar los alias de los paths de los archivos
-*
-* @author Cristian David Herrera
-* @date 2024-12-22
-*/
+ * Este archivo es para configurar los alias de los paths de los archivos
+ *
+ * @author Cristian David Herrera
+ * @date 2024-12-22
+ */
 {
-    "compilerOptions": {
-      "baseUrl": ".",
-      "paths": {
-        "@services/*": ["./src/services/*"],
-        "@components/*": ["./src/components/*"],
-        "@hooks/*": ["./src/hooks/*"],
-        "@pages/*": ["./src/pages/*"],
-        "@utils/*": ["./src/utils/*"],
-        "@router/*": ["./src/router/*"],
-        "@wrappers/*": ["./src/wrappers/*"],
-        "@containers/*": ["./src/containers/*"],
-        "@assets/*": ["./src/assets/*"]
-      }
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@services/*": ["./src/services/*"],
+      "@components/*": ["./src/components/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@router/*": ["./src/router/*"],
+      "@wrappers/*": ["./src/wrappers/*"],
+      "@containers/*": ["./src/containers/*"],
+      "@assets/*": ["./src/assets/*"]
     }
   }
+}

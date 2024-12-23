@@ -1,7 +1,7 @@
 import { lazy } from 'react';
 /**
  * Importación de lazy routes oara la carga de las paginas
- * 
+ *
  * @author Cristian David Herrera
  * @date 2024-12-22
  */
