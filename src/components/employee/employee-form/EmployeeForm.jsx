@@ -7,10 +7,11 @@ import Joi from "joi";
 export default function EmployeeForm( ref, func ) {
 
     const validationSchema = Joi.object({
-        id: Joi.number().positive().required().messages({
+        id: Joi.number().positive().max(9999999999).required().messages({
             'any.required': 'El campo id es requerido',
             'number.base': 'El campo id debe ser un número',
-            'number.positive': 'El campo id debe ser un número positivo'
+            'number.positive': 'El campo id debe ser un número positivo',
+            'number.max': 'El campo id debe tener un máximo de 10 dígitos'
         }),
         nombre: Joi.string().max(50).required().messages({
             'any.required': 'El campo nombre es requerido',

@@ -4,7 +4,6 @@ import { useReducer } from "react";
 
 const RequestPages = () => {
     const {
-        employeeList,
         requestToolBar,
         dataRequest,
         isLoading,
@@ -22,6 +21,7 @@ const RequestPages = () => {
                 error={isError}
                 loading={isLoading}
                 toolbar={requestToolBar}
+                action={deleteRequests}
             />
         </div>
     );
