@@ -40,9 +40,11 @@ export default function RequestForm(ref, func, employeeList = []) {
       'string.base': 'El campo resumen debe ser una cadena de texto',
       'string.max': 'El campo resumen debe tener un máximo de 50 caracteres'
     }),
-    id_empleado: Joi.number().positive().required().messages({
+    id_empleado: Joi.number().positive().max(9999999999).required().messages({
       'any.required': 'El campo empleado es requerido',
       'number.base': 'Debe selecionar una opción',
+      'number.empty': 'El campo empleado no puede estar vacío',
+      'number.max': 'El campo empleado debe tener máximo de 10 dígitos',
       'number.positive': 'El campo empleado debe ser un número positivo'
     })
   });
