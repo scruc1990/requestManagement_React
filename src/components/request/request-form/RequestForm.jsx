@@ -3,28 +3,32 @@ import { validates } from "@utils/functions/validates";
 import { useFormik } from "formik";
 import PropTypes from "prop-types";
 import Joi from "joi";
+import { SelectComponent } from "@components/generic/SelectComponent";
 
-export default function RequestForm( ref, func, employeeList ) {
+export default function RequestForm( ref, func, employeeList = [] ) {
 
     const validationSchema = Joi.object({
         codigo: Joi.string().max(50).required().messages({
             'any.required': 'El campo codigo es requerido',
+            'string.empty': 'El campo codigo no puede estar vacío',
             'string.base': 'El campo codigo debe ser una cadena de texto',
             'string.max': 'El campo codigo debe tener un máximo de 50 caracteres'
         }),
         descripcion: Joi.string().max(50).required().messages({
             'any.required': 'El campo descripcion es requerido',
+            'string.empty': 'El campo descripcion no puede estar vacío',
             'string.base': 'El campo descripcion debe ser una cadena de texto',
             'string.max': 'El campo descripcion debe tener un máximo de 50 caracteres'
         }),
         resumen: Joi.string().max(50).required().messages({
             'any.required': 'El campo resumen es requerido',
+            'string.empty': 'El campo resumen no puede estar vacío',
             'string.base': 'El campo resumen debe ser una cadena de texto',
             'string.max': 'El campo resumen debe tener un máximo de 50 caracteres'
         }),
         id_empleado: Joi.number().positive().required().messages({
             'any.required': 'El campo empleado es requerido',
-            'number.base': 'El campo empleado debe ser un número',
+            'number.base': 'Debe selecionar una opción',
             'number.positive': 'El campo empleado debe ser un número positivo'
         }),
     });
@@ -77,24 +81,13 @@ export default function RequestForm( ref, func, employeeList ) {
                 formik={formik}
             />
 
-            <div className="'mb-4 bg-sky-100'">
-                <label htmlFor="id_empleado" className="block text-gray-700">
-                    Empleado
-                </label>
-                <select
-                    id="id_empleado"
-                    name="id_empleado"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.id_empleado}
-                    className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
-                >
-                    <option value="">Seleccione un empleado</option>
-                    {employeeList?.map((employee) => {
-                        return <option key={employee.id} value={employee.id}>{employee.nombre}</option>
-                    })}
-                </select>
-            </div>
+            <SelectComponent
+                id="id_empleado"
+                name="id_empleado"
+                label="Empleado"
+                formik={formik}
+                options={employeeList}
+            />
             <button type="submit" ref={ref}/>
         </form>
     );
