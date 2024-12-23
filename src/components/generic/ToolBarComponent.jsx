@@ -7,8 +7,8 @@ export default function ToolBarComponent(text, title, context, refer, children) 
     return (
         <>
             <div className="flex justify-start">
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                onClick={() => setOpen((old) => !old)}>Nuevo {text}</button>
+                <button className="bg-gray-200 hover:bg-gray-400 text-gray-500 font-bold py-2 px-4 rounded"
+                onClick={() => setOpen((old) => !old)}> + Nuevo {text}</button>
             </div>
 
             <ModalComponent
