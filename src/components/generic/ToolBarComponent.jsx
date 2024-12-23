@@ -1,7 +1,7 @@
 import ModalComponent from "./ModalComponent";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-export default function ToolBarComponent(text, title, context, refer, children) {
+export default function ToolBarComponent(text, title, context, refer, children, status) {
     const [open, setOpen] = useState(false);
 
     return (
@@ -17,6 +17,7 @@ export default function ToolBarComponent(text, title, context, refer, children) 
                 title={title}
                 context={context}
                 refer={refer}
+                status={status}
             >
                 {children}
             </ModalComponent>

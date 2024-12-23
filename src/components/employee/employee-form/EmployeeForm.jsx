@@ -9,21 +9,25 @@ export default function EmployeeForm( ref, func ) {
     const validationSchema = Joi.object({
         id: Joi.number().positive().max(9999999999).required().messages({
             'any.required': 'El campo id es requerido',
+            'number.empty': 'El campo id no puede estar vacío',
             'number.base': 'El campo id debe ser un número',
             'number.positive': 'El campo id debe ser un número positivo',
             'number.max': 'El campo id debe tener un máximo de 10 dígitos'
         }),
         nombre: Joi.string().max(50).required().messages({
             'any.required': 'El campo nombre es requerido',
+            'string.empty': 'El campo nombre no puede estar vacío',
             'string.max': 'El campo nombre debe tener un máximo de 50 caracteres'
         }),
         fecha_ingreso: Joi.date().max('now').required().messages({
             'any.required': 'El campo fecha de ingreso es requerido',
+            'date.empty': 'El campo fecha de ingreso no puede estar vacío',
             'date.base': 'El campo fecha de ingreso debe ser una fecha',
             'date.max': 'El campo fecha de ingreso no puede ser mayor a la fecha actual'
         }),
         salario: Joi.number().positive().required().messages({
             'any.required': 'El campo salario es requerido',
+            'number.empty': 'El campo salario no puede estar vacío',
             'number.base': 'El campo salario debe ser un número',
             'number.positive': 'El campo salario debe ser un número positivo'
         }),

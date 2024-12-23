@@ -4,11 +4,12 @@ import { getAllRequests, createRequest, deleteRequest } from "@services/requestS
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import requestColumns from "@utils/columns/requestColumns";
 import ToolBarComponent from "@components/generic/ToolBarComponent";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import RequestForm from "@components/request/request-form/RequestForm";
 
 export const useRequest = () => {
     const queryClient = useQueryClient();
+    const [status, setStatus] = useState(false);
     const { token } = useTokenContext();
     const bottonRef = useRef();
     const { data: employeeList } = useEmployee();
@@ -25,7 +26,9 @@ export const useRequest = () => {
             if (!response.success) {
                 alert(response.message);
             } else {
+                setStatus(true);
                 alert('Solicitud creada correctamente');
+
             }
 
             queryClient.invalidateQueries({ queryKey: ['request'] });
@@ -52,7 +55,8 @@ export const useRequest = () => {
         'Crear Solicitud',
         'Ingrese los datos de la solicitud a crear:',
         bottonRef,
-        requestCreate);
+        requestCreate,
+        status);
 
     return {
         employeeList,
