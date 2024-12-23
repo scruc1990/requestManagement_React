@@ -5,8 +5,23 @@ import PropTypes from "prop-types";
 import Joi from "joi";
 import { SelectComponent } from "@components/generic/SelectComponent";
 
+/**
+ * Componente para el formulario de creación de solicitudes
+ * 
+ * @param {*} ref Objeto de referencia para el botón de envío del formulario 
+ * @param {*} func Función que se ejecutará al enviar el formulario
+ * @param {*} employeeList Lista de empleados
+ * 
+ * @returns {JSX.Element}
+ * 
+ * @author Cristian David Herrera
+ * @date 2024-12-22
+ */
 export default function RequestForm( ref, func, employeeList = [] ) {
 
+    /**
+     * Esquema de validación para los campos del formulario
+     */
     const validationSchema = Joi.object({
         codigo: Joi.string().max(50).required().messages({
             'any.required': 'El campo codigo es requerido',
@@ -33,6 +48,12 @@ export default function RequestForm( ref, func, employeeList = [] ) {
         }),
     });
 
+    /**
+     * Función para validar los campos del formulario
+     * 
+     * @param {*} data Valores de los campos del formulario
+     * @returns Errores de validación
+     */
     const validate = (data) => {
         return validates(data, validationSchema);
     };

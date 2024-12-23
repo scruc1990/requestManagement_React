@@ -1,3 +1,9 @@
+/**
+ * Define las columnas que se mostrarán en la tabla de empleados
+ * 
+ * @author Cristian David Herrera
+ * @date 2024-12-22
+ */
 const employeeColumns = [
     { 
         name: 'Identificación',

@@ -1,5 +1,16 @@
 import React from 'react';
 
+/**
+ * Componente que renderiza un botón de eliminar utilizando un svg
+ * @param {*} param0 
+ * @param {function} param0.click Función que se ejecutará al hacer click en el botón
+ * @param {number} param0.id Identificador del elemento a eliminar
+ * 
+ * @returns {JSX.Element} 
+ * 
+ * @author Cristian David Herrera
+ * @date 2024-12-22
+ */
 const DeleteButton = ({ click, id }) => {
   return (
     <div

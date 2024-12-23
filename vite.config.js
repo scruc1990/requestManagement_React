@@ -2,6 +2,14 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path';
 
+/**
+ * Configuración de Vite, se implementan alias para los
+ * directorios de la aplicación y se establece la carpeta
+ * de salida de la aplicación
+ * 
+ * @author Cristian David Herrera
+ * @date 2024-12-22
+ */
 export default defineConfig({
   plugins: [react()],
   resolve: {

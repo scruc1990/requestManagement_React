@@ -1,11 +1,23 @@
-import { useTokenContext } from "@hooks/useTokenContext";
+import { useTokenContext } from "@hooks/context/useTokenContext";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+/**
+ * Componente para renderizar la barra de navegación utilizando react-router-dom
+ * 
+ * @returns {JSX.Element}
+ * 
+ * @author Cristian David Herrera
+ * @date 2024-12-22
+ */
 const NavComponent = () => {
     const navigate = useNavigate();
     const { setToken } = useTokenContext();
 
+    /**
+     * Función para cerrar sesión y redirigir al usuario a
+     * la página de inicio de sesión
+     */
     const logout = () => {
         setToken(null);
         navigate("/auth/login");

@@ -2,6 +2,22 @@ import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/re
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 
+/**
+ * Componente para renderizar un modal
+ * 
+ * @param {*} param0 
+ * @param {boolean} param0.open Estado del modal
+ * @param {function} param0.setOpen Función para cambiar el estado del modal
+ * @param {string} param0.title Título del modal
+ * @param {string} param0.context Contexto del modal
+ * @param {object} param0.refer Referencia al botón de envío del formulario
+ * @param {boolean} param0.status Estado de la petición
+ * 
+ * @returns {JSX.Element} 
+ * 
+ * @author Cristian David Herrera
+ * @date 2024-12-22
+ */
 const ModalComponent = ({
   open,
   setOpen,
@@ -12,6 +28,10 @@ const ModalComponent = ({
   status
 }) => {
 
+    /**
+     * Efecto para cerrar el modal al cambiar el estado de la petición y
+     * realizar el cierre del modal cuando realmente se haya creado el elemento
+     */
     useEffect(() => {
       if (status) {
         setOpen(false);

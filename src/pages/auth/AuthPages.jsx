@@ -1,6 +1,14 @@
 import LoginForm from "@components/auth/login-form/LoginForm";
 import LoginHeader from "@components/auth/login-header/LoginHeader";
 
+/**
+ * Componente para la página de autenticación
+ * 
+ * @returns {JSX.Element}
+ * 
+ * @author Cristian David Herrera
+ * @date 2024-12-22
+ */
 const AuthPages = () => {
 
     return (

@@ -1,7 +1,18 @@
 import { useEmployee } from "@hooks/employee/useEmployee";
 import TableComponent from "@components/generic/TableComponent";
 
+/**
+ * Componente para la página de empleados
+ * 
+ * @returns {JSX.Element}
+ * 
+ * @author Cristian David Herrera
+ * @date 2024-12-22
+ */
 const EmployeePages = () => {
+    /**
+     * Llamado al Hook para obtener los empleados
+     */
     const {
         data,
         isLoading,

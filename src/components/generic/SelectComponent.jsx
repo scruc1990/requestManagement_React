@@ -1,3 +1,18 @@
+
+/**
+ * Componente generico para select
+ * 
+ * @param {*} param0
+ * @param {string} param0.id Identificador del campo
+ * @param {string} param0.name Nombre del campo
+ * @param {string} param0.label Etiqueta del campo
+ * @param {object} param0.formik Objeto de formik
+ *  
+ * @returns {JSX.Element} 
+ * 
+ * @author Cristian David Herrera
+ * @date 2024-12-22
+ */
 export const SelectComponent = ({ id, name, label, formik, options }) => {
     return (
         <div className="'mb-4 bg-sky-100'">

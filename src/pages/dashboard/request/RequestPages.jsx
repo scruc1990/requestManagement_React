@@ -1,8 +1,18 @@
 import TableComponent from "@components/generic/TableComponent";
 import { useRequest } from "@hooks/request/useRequest";
-import { useReducer } from "react";
 
+/**
+ * Componente para la página de solicitudes
+ * 
+ * @returns {JSX.Element}
+ * 
+ * @author Cristian David Herrera
+ * @date 2024-12-22
+ */
 const RequestPages = () => {
+    /**
+     * Llamado al Hook para obtener las solicitudes
+     */
     const {
         requestToolBar,
         dataRequest,

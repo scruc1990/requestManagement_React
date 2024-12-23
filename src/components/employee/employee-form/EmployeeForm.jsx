@@ -4,8 +4,24 @@ import { useFormik } from "formik";
 import PropTypes from "prop-types";
 import Joi from "joi";
 
+/**
+ * Componente para el formulario de creación de empleados
+ * 
+ * @param {*} ref Objeto de referencia para el botón de envío del formulario
+ * @param {*} func Función que se ejecutará al enviar el formulario
+ * @returns {JSX.Element}
+ * 
+ * @author Cristian David Herrera
+ * @date 2024-12-22
+ */
 export default function EmployeeForm( ref, func ) {
 
+    /**
+     * Esquema de validación para los campos del formulario
+     * 
+     * @author Cristian David Herrera
+     * @date 2024-12-22
+     */
     const validationSchema = Joi.object({
         id: Joi.number().positive().max(9999999999).required().messages({
             'any.required': 'El campo id es requerido',
@@ -33,10 +49,22 @@ export default function EmployeeForm( ref, func ) {
         }),
     });
 
+    /**
+     * Función para validar los campos del formulario
+     * 
+     * @param {*} data Valores de los campos del formulario 
+     * @returns Errores de validación
+     */
     const validate = (data) => {
         return validates(data, validationSchema);
     };
 
+    /**
+     * Definición del formulario con la librería Formik
+     * 
+     * @author Cristian David Herrera
+     * @date 2024-12-22
+     */
     const formik = useFormik({
         initialValues: {
             id: '',

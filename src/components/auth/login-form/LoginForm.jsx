@@ -1,15 +1,29 @@
 import { InputComponent } from "@components/generic/InputComponent";
-import { useTokenContext } from "@hooks/useTokenContext";
+import { useTokenContext } from "@hooks/context/useTokenContext";
 import { validates } from "@utils/functions/validates";
 import { login } from '@services/authServices.js';
 import { useFormik } from "formik";
 import Joi from "joi";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * Componente para el formulario de inicio de sesión
+ * 
+ * @returns {JSX.Element}
+ * 
+ * @author Cristian David Herrera
+ * @date 2024-12-22
+ */
 const LoginForm = () => {
     const { setToken } = useTokenContext();
     const navigate = useNavigate();
 
+    /**
+     * Esquema de validación para el formulario de inicio de sesión
+     * 
+     * @author Cristian David Herrera
+     * @date 2024-12-22
+     */
     const validationSchema = Joi.object({
         usuario: Joi.string().max(100).required().messages({
             "string.base": "El usuario debe ser un texto",
@@ -23,10 +37,25 @@ const LoginForm = () => {
         })
     });
 
+    /**
+     * Función para validar los valores del formulario
+     * 
+     * @param {*} values valores del formulario
+     * @returns {Object} errores de validación
+     * 
+     * @author Cristian David Herrera
+     * @date 2024-12-22
+     */
     const validate = (values) => {
         return validates(values, validationSchema);
     };
 
+    /**
+     * Definición de los valores iniciales y funciones de formik
+     * 
+     * @author Cristian David Herrera
+     * @date 2024-12-22
+     */
     const formik = useFormik({
         initialValues: {
             usuario: '',

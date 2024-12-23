@@ -1,3 +1,9 @@
+/**
+* Este archivo es para configurar los alias de los paths de los archivos
+*
+* @author Cristian David Herrera
+* @date 2024-12-22
+*/
 {
     "compilerOptions": {
       "baseUrl": ".",
@@ -14,4 +20,3 @@
       }
     }
   }
-  

@@ -1,3 +1,9 @@
+/**
+ * Define las columnas de la tabla de solicitudes
+ * 
+ * @author Cristian David Herrera
+ * @date 2024-12-22
+ */
 const requestColumns = [
     { 
         name: 'Código',

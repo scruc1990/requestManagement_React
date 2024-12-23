@@ -1,5 +1,20 @@
 import PropTypes from 'prop-types';
 
+/**
+ * Componente para un campo de formulario
+ *
+ * @param {*} param0
+ * @param {string} param0.id Identificador del campo
+ * @param {string} param0.name Nombre del campo
+ * @param {string} param0.label Etiqueta del campo
+ * @param {string} param0.type Tipo del campo
+ * @param {object} param0.formik Objeto de formik
+ *  
+ * @returns
+ * 
+ * @author Cristian David Herrera
+ * @date 2024-12-22 
+ */
 export const InputComponent = ({
     id,
     name,

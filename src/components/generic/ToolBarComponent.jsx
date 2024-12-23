@@ -1,6 +1,21 @@
 import ModalComponent from "./ModalComponent";
 import { useState } from "react";
 
+/**
+ * Componente para renderizar una barra de herramientas
+ * 
+ * @param {*} text Texto del botón 
+ * @param {*} title Título del modal
+ * @param {*} context Contexto del modal
+ * @param {*} refer Referencia al botón de envío del formulario
+ * @param {*} children Componentes hijos
+ * @param {*} status estado de la petición
+ * 
+ * @returns {JSX.Element}
+ * 
+ * @author Cristian David Herrera
+ * @date 2024-12-22 
+ */
 export default function ToolBarComponent(text, title, context, refer, children, status) {
     const [open, setOpen] = useState(false);
 

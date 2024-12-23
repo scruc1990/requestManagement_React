@@ -4,6 +4,12 @@ import AuthContainer from "@containers/auth/AuthContainer";
 import DashBoardContainer from "@containers/dashboard/DashBoardContainer";
 import AuthWrapper from "@wrappers/authWrapper";
 
+/**
+ * Definición de las rutas de la aplicación
+ * 
+ * @author Cristian David Herrera
+ * @date 2024-12-22
+ */
 export const router = createHashRouter([
     {
         path: "/",
