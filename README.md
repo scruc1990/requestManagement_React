@@ -4,9 +4,21 @@
 
 Prueba técnica de frontend en React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Comandos de Git utilizados
 
-Currently, two official plugins are available:
+- Estos fueron los primero comandos que se ejecutaron para poder subir el proyecto
+git init git add .
+git commit -m "Rama: main Autor: Cristian Herrera Descripción: Se realiza montaje de la base del proyecto"
+git branch -M main git remote add origin https://github.com/scruc1990/requestManagement_React.git
+git push -u origin main
+git push
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- En el trascurso del desarrollo de la prueba tecnica se reutilizaron varios de estos comandos lo cual son los mismos que se usaron en el backend
+git add .                                      -- Para añadir todos lo archivos modificados
+git rm --cache <nombre archivo>                -- Para quitar de staged changes un archivo en especifico
+git status                                     -- para validar que archivos estan en el staged changes y cuales no
+git commit -m "<texto del commit>"             -- para realizar el commit
+git push                                       -- para subir el commit al repositorio remoto
+git fetch                                      -- para que me actualice los cambios que tiene el repositorio remoto
+git pull                                       -- para poder bajar los cambio del repositorio remoto al local
+git checkout -- .                              -- para eliminar todos los cambios que tengo
