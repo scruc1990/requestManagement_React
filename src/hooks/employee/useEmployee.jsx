@@ -42,6 +42,7 @@ export const useEmployee = () => {
     mutationFn: (values) => createEmployee(values, token),
     onSuccess: (response) => {
       if (!response.success) {
+        setStatus(false);
         alert(response.message);
       } else {
         setStatus(true);

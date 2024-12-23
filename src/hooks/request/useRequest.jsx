@@ -49,6 +49,7 @@ export const useRequest = () => {
     mutationFn: (values) => createRequest(values, token),
     onSuccess: (response) => {
       if (!response.success) {
+        setStatus(false);
         alert(response.message);
       } else {
         setStatus(true);
